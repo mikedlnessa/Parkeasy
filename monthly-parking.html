@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Parking | ParkEasy</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .plan-card {
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .plan-card.popular {
+            border-color: #3b82f6;
+            position: relative;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="map-pin" class="text-blue-500 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-blue-600">ParkEasy</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="daily-parking.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Daily Parking</a>
+                    <a href="monthly-parking.html" class="text-blue-600 px-3 py-2 text-sm font-medium">Monthly Parking</a>
+                    <a href="pay-ticket.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Pay Ticket</a>
+                    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Login</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl" data-aos="fade-down">
+                Monthly Parking Plans
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl" data-aos="fade-up" data-aos-delay="100">
+                Secure your parking spot for the month and enjoy hassle-free parking every day.
+            </p>
+        </div>
+    </div>
+
+    <!-- Monthly Parking Plans -->
+    <div class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Pricing</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-delay="100">
+                    Choose Your Perfect Plan
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- Basic Plan -->
+                <div class="plan-card rounded-lg bg-white p-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-medium text-gray-900">Basic</h3>
+                    <div class="mt-4 flex items-baseline text-gray-900">
+                        <span class="text-3xl font-extrabold tracking-tight">$120</span>
+                        <span class="ml-1 text-xl font-semibold">/month</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">Great for occasional parkers</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">5 days per week</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">8am-6pm access</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="x" class="flex-shrink-0 h-5 w-5 text-gray-400"></i>
+                            <span class="ml-3 text-gray-500">No overnight parking</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="x" class="flex-shrink-0 h-5 w-5 text-gray-400"></i>
+                            <span class="ml-3 text-gray-500">No reserved spot</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="plan-card rounded-lg bg-white p-6 popular" data-aos="fade-up" data-aos-delay="300">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="text-lg font-medium text-gray-900">Standard</h3>
+                    <div class="mt-4 flex items-baseline text-gray-900">
+                        <span class="text-3xl font-extrabold tracking-tight">$180</span>
+                        <span class="ml-1 text-xl font-semibold">/month</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">Perfect for daily commuters</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">7 days per week</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">24/7 access</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">Overnight parking</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="x" class="flex-shrink-0 h-5 w-5 text-gray-400"></i>
+                            <span class="ml-3 text-gray-500">No reserved spot</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="plan-card rounded-lg bg-white p-6" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-lg font-medium text-gray-900">Premium</h3>
+                    <div class="mt-4 flex items-baseline text-gray-900">
+                        <span class="text-3xl font-extrabold tracking-tight">$250</span>
+                        <span class="ml-1 text-xl font-semibold">/month</span>
+                    </div>
+                    <p class="mt-2 text-gray-600">Best for guaranteed convenience</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">7 days per week</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">24/7 access</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">Overnight parking</span>
+                        </li>
+                        <li class="flex">
+                            <i data-feather="check" class="flex-shrink-0 h-5 w-5 text-green-500"></i>
+                            <span class="ml-3 text-gray-500">Reserved spot</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Locations Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Locations</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-delay="100">
+                    Monthly Parking Locations
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    We offer monthly parking at convenient locations throughout the city.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Location 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="300">
+                    <img class="w-full h-48 object-cover" src="http://static.photos/cityscape/640x360/4" alt="Downtown Garage">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900">Downtown Garage</h3>
+                        <div class="mt-2 flex items-center text-sm text-gray-500">
+                            <i data-feather="map-pin" class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"></i>
+                            123 Main St, City Center
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">Starting at $120/month</span>
+                        </div>
+                        <div class="mt-6">
+                            <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                View Availability
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="400">
+                    <img class="w-full h-48 object-cover" src="http://static.photos/cityscape/640x360/5" alt="Business District Lot">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900">Business District Lot</h3>
+                        <div class="mt-2 flex items-center text-sm text-gray-500">
+                            <i data-feather="map-pin" class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"></i>
+                            456 Commerce Ave
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">Starting at $150/month</span>
+                        </div>
+                        <div class="mt-6">
+                            <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                View Availability
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow" data-aos="fade-up" data-aos-delay="500">
+                    <img class="w-full h-48 object-cover" src="http://static.photos/cityscape/640x360/6" alt="Suburban Parking">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900">Suburban Parking</h3>
+                        <div class="mt-2 flex items-center text-sm text-gray-500">
+                            <i data-feather="map-pin" class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"></i>
+                            789 Oak St
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">Starting at $100/month</span>
+                        </div>
+                        <div class="mt-6">
+                            <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                View Availability
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">Benefits</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-delay="100">
+                    Why Choose Monthly Parking?
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- Benefit 1 -->
+                <div class="bg-white p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex-shrink-0 bg-blue-100 rounded-md p-3 inline-flex">
+                        <i data-feather="dollar-sign" class="h-6 w-6 text-blue-600"></i>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-medium text-gray-900">Cost Savings</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Save up to 50% compared to daily parking rates with our monthly plans.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-white p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex-shrink-0 bg-blue-100 rounded-md p-3 inline-flex">
+                        <i data-feather="clock" class="h-6 w-6 text-blue-600"></i>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-medium text-gray-900">Time Savings</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            No more circling for parking - your spot is waiting for you every day.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-white p-6 rounded-lg shadow" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex-shrink-0 bg-blue-100 rounded-md p-3 inline-flex">
+                        <i data-feather="shield" class="h-6 w-6 text-blue-600"></i>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg font-medium text-gray-900">Peace of Mind</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Secure, well-lit parking facilities with 24/7 monitoring.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase" data-aos="fade-up">FAQ</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-delay="100">
+                    Frequently Asked Questions
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-lg font-medium text-gray-900">How do I sign up for monthly parking?</h3>
+                        <div class="mt-2 text-gray-600">
+                            <p>You can sign up online by selecting your preferred location and plan, then completing the registration form. You'll need to provide your vehicle information and payment details.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-lg font-medium text-gray-900">Can I cancel my monthly parking plan?</h3>
+                        <div class="mt-2 text-gray-600">
+                            <p>Yes, you can cancel your plan at any time. We require 30 days notice for cancellations. There are no cancellation fees.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-lg font-medium text-gray-900">What happens if my parking spot is taken?</h3>
+                        <div class="mt-2 text-gray-600">
+                            <p>With our Premium plan, your spot is reserved exclusively for you. With other plans, we guarantee availability but not a specific spot. If a lot is full, we'll direct you to the nearest available location.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="text-lg font-medium text-gray-900">How do I access my parking facility?</h3>
+                        <div class="mt-2 text-gray-600">
+                            <p>After registration, you'll receive a digital access card in our mobile app. For gated facilities, you can use this card or your license plate will be recognized by our automated system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Services</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="daily-parking.html" class="text-base text-gray-300 hover:text-white">Daily Parking</a></li>
+                        <li><a href="monthly-parking.html" class="text-base text-gray-300 hover:text-white">Monthly Parking</a></li>
+                        <li><a href="pay-ticket.html" class="text-base text-gray-300 hover:text-white">Pay Tickets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Terms</a></li>
+                        <li><a href="#" class="text-base text-gray-300 hover:text-white">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Connect</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="linkedin" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 ParkEasy, Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+    </script>
+</body>
+</html>
