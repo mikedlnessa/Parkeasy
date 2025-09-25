@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enforcement - Write Violation</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 400px; margin: 40px auto; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; margin-bottom: 24px; }
+        label { display: block; margin-top: 16px; }
+        input, select { width: 100%; padding: 8px; margin-top: 4px; border-radius: 4px; border: 1px solid #ccc; }
+        .btn { background: #0078d4; color: #fff; border: none; padding: 10px 0; border-radius: 4px; width: 100%; margin-top: 24px; cursor: pointer; font-size: 16px; }
+        .btn:disabled { background: #ccc; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div id="violationSection" class="hidden">
+            <h2>Write Violation</h2>
+            <form id="violationForm">
+                <label for="violationType">Violation Type</label>
+                <select id="violationType" name="violationType">
+                    <option value="">Select violation</option>
+                    <option value="NO PAYMENT">NO PAYMENT ($50)</option>
+                    <option value="NO PARKING">NO PARKING ($125)</option>
+                    <option value="IMPROPER PARKING">IMPROPER PARKING ($25)</option>
+                    <option value="GATE RUNNING">GATE RUNNING ($250)</option>
+                </select>
+                <label for="make">Make</label>
+                <select id="make" name="make">
+                    <option value="">Select make</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="model">Model</label>
+                <select id="model" name="model">
+                    <option value="">Select model</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="color">Color</label>
+                <select id="color" name="color">
+                    <option value="">Select color</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Gray">Gray</option>
+                    <option value="Red">Red</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="licensePlate">License Plate Number</label>
+                <input type="text" id="licensePlate" name="licensePlate" placeholder="Enter license plate">
+                <label for="state">State</label>
+                <select id="state" name="state">
+                    <option value="">Select state</option>
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AZ">AZ</option>
+                    <option value="AR">AR</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DE">DE</option>
+                    <option value="DC">DC</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="IA">IA</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="ME">ME</option>
+                    <option value="MD">MD</option>
+                    <option value="MA">MA</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MS">MS</option>
+                    <option value="MO">MO</option>
+                    <option value="MT">MT</option>
+                    <option value="NE">NE</option>
+                    <option value="NV">NV</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NY">NY</option>
+                    <option value="NC">NC</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WV">WV</option>
+                    <option value="WI">WI</option>
+                    <option value="WY">WY</option>
+                </select>
+                <button type="submit" class="btn">Write Violation</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const violationSection = document.getElementById('violationSection');
+        loginForm.onsubmit = function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if ((username === 'Angela' && password === 'AT1001!!') || (username === 'Mike' && password === 'MD1001!!')) {
+                loginForm.classList.add('hidden');
+                violationSection.classList.remove('hidden');
+            } else {
+                alert('Invalid credentials.');
+            }
+        };
+        document.getElementById('violationForm').onsubmit = function(e) {
+            e.preventDefault();
+            const violationType = document.getElementById('violationType').value;
+            const make = document.getElementById('make').value;
+            const model = document.getElementById('model').value;
+            const color = document.getElementById('color').value;
+            const licensePlate = document.getElementById('licensePlate').value.trim().toUpperCase();
+            const state = document.getElementById('state').value;
+            if (!violationType || !make || !model || !color || !licensePlate || !state) {
+                alert('Please fill out all fields.');
+                return;
+            }
+            let fine = 0;
+            switch (violationType) {
+                case 'NO PAYMENT': fine = 50; break;
+                case 'NO PARKING': fine = 125; break;
+                case 'IMPROPER PARKING': fine = 25; break;
+                case 'GATE RUNNING': fine = 250; break;
+            }
+            // Store violation in localStorage
+            const violation = {
+                violationType, make, model, color, licensePlate, state, fine
+            };
+            let violations = JSON.parse(localStorage.getItem('violations') || '[]');
+            violations.push(violation);
+            localStorage.setItem('violations', JSON.stringify(violations));
+            alert('Violation written successfully!');
+            document.getElementById('violationForm').reset();
+        };
+    </script>
+</body>
+</html>

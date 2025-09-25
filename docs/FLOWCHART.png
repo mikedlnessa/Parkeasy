@@ -1,0 +1,12 @@
+(Flowchart: See below for description)
+
+[Diagram: User flow]
+
+1. User visits index.html
+2. Navigates to pay-ticket.html or enforcement.html
+3. Employee logs in and writes violation (enforcement.html)
+4. Violation stored in localStorage
+5. User enters ticket/license info in pay-ticket.html
+6. Fine is displayed if violation found
+
+(For a real diagram, use tools like draw.io or Lucidchart to create a PNG and replace this placeholder.)

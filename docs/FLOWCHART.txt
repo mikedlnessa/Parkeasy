@@ -1,0 +1,10 @@
+Parking_Project User Flow:
+
+1. User visits index.html
+2. Navigates to pay-ticket.html or enforcement.html
+3. Employee logs in and writes violation (enforcement.html)
+4. Violation stored in localStorage
+5. User enters ticket/license info in pay-ticket.html
+6. Fine is displayed if violation found
+
+(Use this as a basis for a diagram in draw.io or similar.)
